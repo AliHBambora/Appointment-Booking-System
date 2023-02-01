@@ -1,0 +1,47 @@
+﻿.ParentLoginContainer {
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+}
+
+.LoginContainer {
+    display: grid;
+    place-items: center;
+    flex-grow: 1;
+}
+
+.LoginFormContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    width: 40vw;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background: #ffffff;
+}
+
+.Input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 25px;
+    border-radius: 20px;
+}
+
+    .Input:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid #8b22e2;
+    }
+
+#LoginButton {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    background: #8b22e2;
+    color:#ffffff;
+    font-size:18px;
+    border:none;
+}
