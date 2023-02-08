@@ -1,12 +1,56 @@
-﻿<div class="ParentLoginContainer">
-    <div class="LoginContainer">
-        <div class="LoginFormContainer">
-            <input class="Input" type="text" placeholder="Name" id="Name" />
-            <input class="Input" type="email" placeholder="Email" id="Email" />
-            <input class="Input" type="text" placeholder="Civil ID" id="CID" />
-            <input class="Input" type="number" placeholder="Mobile Number" id="Number" />
+﻿@{
+    Layout = null;
+}
 
-            <button id="RegisterButton">REGISTER</button>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @Html.Partial("_ScriptsBase")
+    @Html.Partial("_HeaderBlock")
+</head>
+<body class="antialiased">
+    <span class="loader" id="loader"></span>
+    <div class="ParentLoginContainer">
+        <div class="LeftLoginContainer">
+            <div class="LoginContainer">
+                <div class="LoginFormContainer">
+                    <div class="InputContainer">
+                        <label for="FirstName">First Name</label><span style="color: #ff0000; font-size: 1.3em">*</span>
+                        <input type="text" class="form-control form-control-md" id="FirstName" required>
+                    </div>
+
+                    <div class="InputContainer">
+                    <label for="LastName">Last Name</label>
+                    <input type="text" class="form-control form-control-md" id="LastName">
+                    </div>
+
+                    <div class="InputContainer">
+                        <label for="Email">Email</label><span style="color: #ff0000; font-size: 1.3em">*</span>
+                    <input type="email" class="form-control form-control-md" id="Email" placeholder="Name@example.com" required>
+                    </div>
+
+                    <div class="InputContainer">
+                        <label for="CID">Civil ID</label><span style="color: #ff0000; font-size: 1.3em">*</span>
+                    <input type="number" class="form-control form-control-md" id="CID" required>
+                    </div>
+
+                    <div class="InputContainer">
+                    <label for="Number">Mobile Number</label>
+                    <input type="number" class="form-control form-control-md" id="Number">
+                    </div>
+
+                    <button id="RegisterButton" class="LoginButton">REGISTER</button>
+
+                    <div style="margin-top:15px;width:70%;margin-left:auto;margin-right:auto">
+                        Already have an account? <a href="/Login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="RightLoginContainer">
+            <img src="~/assets/images/Signup.jpg" class="LoginImage" />
         </div>
     </div>
-</div>
+</body>
+</html>
+

@@ -5,17 +5,25 @@
         <img src="~/assets/images/logo.svg" width="180" />
     </div>
     <div id="nav-links">
-       @* <button id="nav-btn">
-            Features
+        @{
+            if (@ViewContext.RouteData.Values["controller"].ToString() == "Appointment" && @ViewContext.RouteData.Values["action"].ToString() == "Index")
+            {
+                <button class="navbar-btn logout" id="LogOut">
+                    Logout
+                </button>
+            }
+        }
+        @* <button id="nav-btn">
+        Features
         </button>
         <button id="nav-btn">
-            Integrations
+        Integrations
         </button>*@
-        <button class="navbar-btn login">
-            Login
+        @* <button class="navbar-btn login">
+        Login
         </button>
         <button class="navbar-btn register">
-            SIGNUP
-        </button>
+        SIGNUP
+        </button>*@
     </div>
 </nav>

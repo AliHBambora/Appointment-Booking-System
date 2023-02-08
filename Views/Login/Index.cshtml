@@ -1,9 +1,48 @@
-﻿<div class="ParentLoginContainer">
-    <div class="LoginContainer">
-        <div class="LoginFormContainer">
-            <input class="Input" type="email" placeholder="Email" id="Email" />
-            <input class="Input" type="password" placeholder="Password" id="Password" />
-            <button id="LoginButton">LOGIN</button>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @Html.Partial("_ScriptsBase")
+    @Html.Partial("_HeaderBlock")
+</head>
+<body class="antialiased">
+    <span class="loader" id="loader"></span>
+    <div class="ParentLoginContainer">
+        <div class="LeftLoginContainer">
+            <div class="LoginContainer">
+                <div class="LoginFormContainer">
+                    @*<input type="text" class="form__input" id="Email" placeholder="Email" required="" />
+                    <label for="name" class="form__label">Email</label>
+                    *@
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" class="form-control form-control-lg" id="Email" placeholder="name@example.com">
+
+                    @*<input type="text" class="form__input" id="Password" placeholder="Password" required="" />
+                    <label for="name" class="form__label">Password</label>*@
+
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <input type="password" class="form-control form-control-lg" id="Password">
+
+
+                    @*<input class="Input" type="email" placeholder="Email" id="Email" />
+                    <input class="Input" type="password" placeholder="Password" id="Password" />*@
+                    <button id="LoginButton" class="LoginButton">LOGIN</button>
+                    <div style="margin-top:15px;width:70%;margin-left:auto;margin-right:auto">
+                        Not registered as a user yet? <a href="/Register">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="RightLoginContainer">
+            <img src="~/assets/images/Login.jpg" class="LoginImage" />
         </div>
     </div>
-</div>
+</body>
+</html>
+
+
+
+

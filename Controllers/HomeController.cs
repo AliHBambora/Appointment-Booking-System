@@ -1,4 +1,10 @@
-﻿using Appointment_booking_system.Models;
+﻿using Appointment_booking_system.ExceptionHandling;
+using Appointment_booking_system.Models;
+using Appointment_booking_system.utils;
+using GEAWebAPI.Controllers.Service;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,15 +24,19 @@ namespace Appointment_booking_system.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            try
+            {
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                return Json(ControllerReturn<bool>.ReturnSingle(true));
+            }
+            catch(Exception e)
+            {
+                return Json(ControllerReturn<string>.ReturnError(ReturnStatus.Status.FAILED, ErrorCode.AB_US_006, e, MessageHandler.getMessage(ErrorCode.AB_US_006)));
+            }
         }
     }
 }

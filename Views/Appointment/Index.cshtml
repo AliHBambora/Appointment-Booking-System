@@ -1,0 +1,112 @@
+﻿@model Appointment_booking_system.Models.Appointment
+@{
+    Layout = null;
+}
+@{
+    var bookingDate = "";
+    bool isBookingDone = false;
+    var username = "";
+    if (ViewBag.isBookingDone != null)
+    {
+        isBookingDone = ViewBag.isBookingDone;
+    }
+    if (ViewBag.userName != null)
+    {
+        username = ViewBag.userName;
+    }
+    if (ViewBag.bookingDate != null)
+    {
+        bookingDate = ViewBag.bookingDate;
+    }
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @Html.Partial("_ScriptsBase")
+    @Html.Partial("_HeaderBlock")
+</head>
+<body class="antialiased" style="overflow:hidden">
+    <span class="loader" id="loader"></span>
+    <div class="ParentLoginContainer">
+        <div class="LeftImageContainer">
+            <img src="~/assets/images/Main.jpg" width="100%" height="100%" style="margin-top:20px" />
+        </div>
+        <div class="RightFormContainer">
+            <div class="LogOutButtonContainer">
+                <button class="navbar-btn logout" id="LogOut">
+                    Logout
+                </button>
+            </div>
+            <h2>Book an appointment</h2>
+            <div class="MenuOptions">
+                <span class="CancellationNotification">Bookings cannot be cancelled 24hrs prior to the booked time</span>
+            </div>
+            <div class="CalendarContainer">
+                <div id="color-calendar" class="calendar">
+                </div>
+
+                <div class="availableSlotContainer">
+                    <h4>AVAILABLE SLOT</h4>
+
+                    <div class="availableSlotsGrid" id="availableSlotsGrid">
+                    </div>
+
+                </div>
+            </div>
+            <div class="HighlightedContainer">
+                <div style="display:flex;align-items:center">
+                    <span style="width:10px;height:10px;background:#61AD01;margin-right:5px"></span>
+                    <span style="font-size:16px">Available slots</span>
+                </div>
+                <div style="display:flex;align-items:center">
+                    <span style="width:10px;height:10px;background:#DBD6D3;margin-right:5px"></span>
+                    <span style="font-size:16px">Booked slots</span>
+                </div>
+            </div>
+            <div class="BookButtonContainer" id="BookButton">
+                @{
+                    if (!isBookingDone)
+                    {
+                        <div class="d-inline-block" id="Tooltip" tabindex="0" data-toggle="tooltip" data-placement="top" title="Please select a time slot first to book">
+                            <button class="DisabledButton" disabled id="BookingBtn">BOOK APPOINTMENT</button>
+                        </div>
+                    }
+                }
+
+            </div>
+            <div class="TableContainer" id="BookingTable">
+                @{
+                    if (isBookingDone)
+                    {
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Booking Date</th>
+                                    <th scope="col">Cancle booking</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>@username</td>
+                                    <td>@bookingDate</td>
+                                    <td>
+                                        <button type="button" id="CancelBookButton" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-times-circle-o" aria-hidden="true"></i>Remove
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <script src="~/js/Appointment.js"></script>
+</body>
+</html>

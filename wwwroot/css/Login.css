@@ -1,47 +1,108 @@
 ﻿.ParentLoginContainer {
     display: flex;
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
+}
+
+.LoginImage{
+    height:100%;
+    width:100%;
+    margin-top:20px;
+}
+
+.LeftLoginContainer {
+    display: grid;
+    align-items: center;
+    flex: 0.5;
+    background: #f0f2f8;
+}
+
+.RightLoginContainer {
+    flex:0.5;
+    height:85vh;
 }
 
 .LoginContainer {
     display: grid;
     place-items: center;
-    flex-grow: 1;
 }
 
 .LoginFormContainer {
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 60px;
     border-radius: 10px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    width: 40vw;
+    width: 30vw;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     background: #ffffff;
 }
 
-.Input {
-    width: 100%;
-    padding: 10px;
-    outline: none;
-    margin-bottom: 25px;
-    border-radius: 20px;
+#FirstName:after {
+    content: " *";
+    color: red;
 }
 
-    .Input:focus {
-        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-        border: 1px solid #8b22e2;
-    }
+.InputContainer {
+    margin-bottom: 10px;
+    width: 100%
+}
 
-#LoginButton {
-    width: 100%;
+
+.LoginButton {
+    width:100%;
     display: grid;
     place-items: center;
     padding: 10px;
     background: #8b22e2;
-    color:#ffffff;
-    font-size:18px;
-    border:none;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    margin-top:15px;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-size: 62,5%;
+}
+
+
+.form__label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    margin-bottom: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+    transform: translateY(0rem);
+}
+
+.form__input {
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 0.2rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 90%;
+    display: block;
+    border-bottom: 0.3rem solid transparent;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    outline: none;
+    border:1px solid black;
+    /* width: 100%;*/
+}
+
+.form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-4rem);
+    transform: translateY(-4rem);
 }
